@@ -18,18 +18,18 @@ function RandomUsers() {
     return <Loading />;
   }
   return (
-    <div className="w-full h-screen bg-[url(src/assets/backUser.svg)] bg-no-repeat bg-cover bg-black flex justify-center items-center">
+    <div className="w-full h-screen bg-[url(/assets/backUser.svg)] bg-no-repeat bg-cover bg-black flex justify-center items-center">
       <div className="card w-[30%] h-[80%] p-3 rounded-2xl bg-[#B6B3F3] relative border-white border-[5px]">
         <div className="nav w-full flex justify-between items-center">
           <span className="cursor-pointer">
-            <img src="src/assets/arrow.svg" alt="" />
+            <img src="/assets/arrow.svg" alt="" />
           </span>
           <p>Profile Overview</p>
           <span
             className="cursor-pointer"
             onClick={() => setReload(reload + 1)}
           >
-            <img src="src/assets/refresh.svg" alt="" />
+            <img src="/assets/refresh.svg" alt="" />
           </span>
         </div>
         <div className="profile w-full  flex justify-center items-center flex-col gap-y-2 my-3">
@@ -58,7 +58,7 @@ function RandomUsers() {
             className="location flex gap-1  items-center cursor-pointer"
           >
             {" "}
-            <img src="src/assets/location.svg" alt="" />
+            <img src="/assets/location.svg" alt="" />
             <span className="font-medium font-sans text-[#000000B2] text-[9px]">
               location
             </span>
@@ -68,7 +68,7 @@ function RandomUsers() {
             href={`tel:${user.cell}`}
             className="contact flex gap-1 items-center cursor-pointer"
           >
-            <img src="src/assets/call.svg" alt="" />
+            <img src="/assets/call.svg" alt="" />
             <span className="font-medium font-sans text-[#000000B2] text-[9px]">
               call me
             </span>
@@ -96,7 +96,7 @@ function RandomUsers() {
             big={formatDate(user.registered.date)}
           />
         </div>
-        <ChaiCode y={"bottom-0"} x={"right-0"} size={5} />
+        <ChaiCode y={"bottom-0"} x={"right-0"} />
       </div>
     </div>
   );

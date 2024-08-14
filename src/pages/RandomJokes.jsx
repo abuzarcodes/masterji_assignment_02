@@ -3,39 +3,36 @@ import useApi from "../hooks/useApi";
 import ChaiCode from "../components/ChaiCode";
 import Loading from "../components/Loading";
 import ErrorPage from "../components/ErrorPage";
+import { CiHeart } from "react-icons/ci";
 
 function RandomJokes() {
   const [joke, error, loading] = useApi(
     "https://api.freeapi.app/api/v1/public/randomjokes/joke/random"
   );
   if (error) {
-    return <ErrorPage/> ;
+    return <ErrorPage />;
   }
   if (loading) {
-    return <Loading/>;
+    return <Loading />;
   }
   return (
-    <div className="min-h-screen bg-[url(src/assets/back.svg)] bg-no-repeat bg-cover py-6 flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-[url(/assets/back.svg)] bg-no-repeat bg-cover py-6 flex flex-col justify-center items-center">
       <div className="w-full max-w-xl border bg-black text-white border-gray-300 rounded-2xl py-3 px-5">
         <div className="flex">
           <div className="mr-2">
-            <img
-              className="rounded-full"
-              src="src/assets/elon.svg"
-              alt="Elon"
-            />
+            <img className="rounded-full" src="/assets/elon.svg" alt="Elon" />
           </div>
           <div>
             <div className="flex space-x-1">
               <span className="font-bold">Elon Musk</span>
               <span className="text-blue-500 flex justify-center items-center">
-                <img src="src/assets/twitterVerification.svg" alt="" />
+                <img src="/assets/twitterVerification.svg" alt="" />
               </span>
             </div>
             <div className="text-gray-500 leading-4">@elonmusk</div>
           </div>
           <div className="text-blue-500 ml-auto">
-            <img src="src/assets/dropDown.svg" alt="Verification Icon" />
+            <img src="/assets/dropDown.svg" alt="Verification Icon" />
           </div>
         </div>
         <div className="py-3">
@@ -45,32 +42,31 @@ function RandomJokes() {
               11:18 PM · Jul 30, 2024 ·{" "}
               <span className="text-white font-semibold">20.5M</span> Views
             </p>
-            {/* <InfoIcon /> */}
           </div>
         </div>
         <div className="flex justify-evenly items-center pt-3 text-gray-500 border-t border-gray-300 text-[15px]">
           <div className="flex ">
-            <img src="src/assets/twitterLikes.svg" alt="Likes" />
+            <img src="/assets/twitterLikes.svg" alt="" />
             <span>{randomNumberGen()}</span>
           </div>
           <div className="flex ">
-            <img src="src/assets/retweet.svg" alt="retweet" />
+            <img src="/assets/retweet.svg" alt="retweet" />
             <span>{randomNumberGen()}</span>
           </div>
           <div className="flex ">
-            <img src="src/assets/twitterComment.svg" alt="Comments" />
+            <img src="/assets/twitterComment.svg" alt="Comments" />
             <span>{randomNumberGen()}</span>
           </div>
           <div className="flex">
-            <img src="src/assets/bookmark.svg" alt="bookmark" />
+            <img src="/assets/bookmark.svg" alt="bookmark" />
             <span>{randomNumberGen()}</span>
           </div>
           <div className="flex">
-            <img src="src/assets/upload.svg" alt="upload" />
+            <img src="/assets/upload.svg" alt="upload" />
           </div>
         </div>
       </div>
-      <ChaiCode y={"bottom-0"} x={"right-0"} size={5} />
+      <ChaiCode y={"bottom-0"} x={"right-0"} />
     </div>
   );
 }
