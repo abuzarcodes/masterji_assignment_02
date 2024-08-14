@@ -3,7 +3,6 @@ import useApi from "../hooks/useApi";
 import ChaiCode from "../components/ChaiCode";
 import Loading from "../components/Loading";
 import ErrorPage from "../components/ErrorPage";
-import { CiHeart } from "react-icons/ci";
 
 function RandomJokes() {
   const [joke, error, loading] = useApi(
