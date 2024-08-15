@@ -18,24 +18,7 @@ function CatListings() {
   if (loading) {
     return <Loading />;
   }
-  if (apiLimit - 2 >= cat.totalItems) {
-    return (
-      <div className="w-full h-screen bg-[url(/assets/catBack.svg)] flex justify-center items-center">
-        <div className="flex justify-center items-center flex-col">
-          <p className="text-[20vw] font-sans font-semibold">Empty</p>
-          <button
-            onClick={() => {
-              setApiLimit(3);
-              setPage(1);
-            }}
-            className="bg-blue-500 p-3 text-center rounded-2xl flex justify-center items-center hover:bg-blue-300 animate-bounce h-[50px] text-[30px]"
-          >
-            Return to page 1
-          </button>
-        </div>
-      </div>
-    );
-  }
+  console.log(apiLimit);
   console.log(cat.data);
   return (
     <div className="w-full h-screen bg-[url(/assets/catBack.svg)] bg-no-repeat bg-cover">
@@ -47,10 +30,11 @@ function CatListings() {
           <ChaiCode y={"top-0"} x={"right-0"} />
         </div>
         <div className="flex justify-evenly overflow-x-auto">
-          {page > 1 ? (
+          {page > 1 || apiLimit - 1 > cat.totalItems ? (
             <div
               className=" h-[80vh] w-[20%] bg-white rounded-r-3xl cursor-pointer"
               onClick={() => {
+                setApiLimit(apiLimit - 3);
                 setPage(page - 1);
               }}
             ></div>
@@ -59,7 +43,7 @@ function CatListings() {
             console.log(value);
             return <CatCard key={index} cat={value} />;
           })}
-          {cat.data.length > 2 ? (
+          {cat.data.length > 2 && apiLimit < cat.totalItems ? (
             <div
               className=" h-[80vh] w-[20%] bg-white rounded-l-3xl cursor-pointer"
               onClick={() => {
