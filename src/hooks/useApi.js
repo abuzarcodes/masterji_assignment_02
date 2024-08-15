@@ -16,8 +16,7 @@ function useApi(urlPath, reload) {
         clg(error);
       }
     })();
-  }, [...reload]);
-  console.log(data)
+  }, [reload]);
   return [data, Error, Loading];
 }
 

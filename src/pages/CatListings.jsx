@@ -10,7 +10,7 @@ function CatListings() {
   const [apiLimit, setApiLimit] = useState(3);
   const [cat, error, loading] = useApi(
     `https://api.freeapi.app/api/v1/public/cats?page=1&limit=${apiLimit}`,
-    [apiLimit]
+    apiLimit
   );
   if (error) {
     return <ErrorPage />;
@@ -18,8 +18,6 @@ function CatListings() {
   if (loading) {
     return <Loading />;
   }
-  console.log(apiLimit);
-  console.log(cat.data);
   return (
     <div className="w-full h-screen bg-[url(/assets/catBack.svg)] bg-no-repeat bg-cover">
       <div className="fore w-full h-screen absolute bg-black/20">
@@ -40,7 +38,6 @@ function CatListings() {
             ></div>
           ) : null}
           {cat.data.slice(page * 3 - 3, page * 3).map((value, index) => {
-            console.log(value);
             return <CatCard key={index} cat={value} />;
           })}
           {cat.data.length > 2 && apiLimit < cat.totalItems ? (
